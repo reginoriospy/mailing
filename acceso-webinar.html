@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar - Didáctica Universitaria</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Tarjeta principal */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+        }
+
+        /* Flyer del evento */
+        .flyer {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Botones */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            color: rgb(255, 255, 255);
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* Efectos de carga */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card fade-in">
+            <!-- Reemplaza con la URL de tu flyer -->
+            <img src="https://raw.githubusercontent.com/reginoriospy/webinar-inaes/refs/heads/main/img/webinar.jpg" 
+                 alt="Flyer del Webinar" class="flyer">
+            
+            <h1>Webinar de estudiantes de la Especialización en Didáctica de la Educación Superior</h1>
+            <p>Un espacio para compartir experiencias y innovaciones en la enseñanza universitaria contemporánea.</p>
+            
+            <div class="btn-container">
+
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTaogPJp8xoaPTo66zENUbga7HMXUYr3tVrtY_xTy6h94P2Q/viewform" 
+                   class="btn btn-secondary" 
+                   target="_blank">
+                    📝 Inscribite al Webinar
+                </a>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeijJfFBMr3LnQU0FGJqQybfyjXvlUNJCQQ4XSxMKsj0kRJWg/viewform" 
+                   class="btn btn-secondary" 
+                   target="_blank">
+                    📝 Accede a la Lista de Asistencia
+                </a>
+
+                <a href="https://meet.google.com/yrm-bfwe-ekr?hs=224/" 
+                   class="btn btn-primary" 
+                   target="_blank">
+                   🎥 Unirse al Evento
+                    
+                </a>
+
+            </div>
+        </div>
+        
+        <div class="footer fade-in">
+            <p>Especialización en Didáctica de la Educación Superior</p>
+        </div>
+    </div>
+
+    <script>
+        // Efectos de interacción mejorados
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Efecto de pulsación
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // Tracking simple (puedes personalizar)
+                    console.log('Botón clickeado:', this.textContent.trim());
+                });
+            });
+
+            // Mensaje de confirmación al salir
+            window.addEventListener('beforeunload', function(e) {
+                if (document.activeElement.classList.contains('btn')) {
+                    // Solo muestra confirmación si se hizo clic en un botón
+                    return null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
